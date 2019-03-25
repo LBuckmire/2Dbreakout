@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PaddMve : The_Base
-{
+// The Script for the paddle inheriting the information from The_Base.Paddle
+public class PaddMve : The_Base.Paddle
+{ 
 
     // Use this for initialization
-    void Start()
+    protected override void Start() // Allows for access and the ability to add to the void Start created in the The_Base.Paddle class
     {
-
+        base.Start();   // Calling the start set in The_Base.Paddle class
+        rb2d = GetComponent<Rigidbody2D>(); // Connects the Rigidbody 2D once you add it from the inspector/IDE
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected override void Update() // Allows for access and the ability to add to the void Update created in the The_Base.Paddle class
     {
-        PaddMovement();
+        PaddMovement(); // Calling the function set in the The_Base.Paddle class  
     }
-    protected override void PaddMovement()
-    {
-        base.PaddMovement();
-    }
+    
 }
